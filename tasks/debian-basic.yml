@@ -3,6 +3,7 @@
 # Install requisite packages.
 
 - name: Install base packages.
+  become: yes
   apt:
     name: "{{ packages }}"
   vars:
@@ -10,4 +11,6 @@
     - snapd
 
 - name: Add /snap/bin to $PATH.
-  command: /etc/profile.d/apps-bin-path.sh
+  become: yes
+  command: "source /etc/profile.d/apps-bin-path.sh"
+  ignore_errors: yes
