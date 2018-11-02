@@ -1,0 +1,13 @@
+# The first thing we will do is set up the Debian 9 server to be able to install Nextcloud.
+#
+# Install requisite packages.
+
+- name: Install base packages.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - snapd
+
+- name: Add /snap/bin to $PATH.
+  command: /etc/profile.d/apps-bin-path.sh

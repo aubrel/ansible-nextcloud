@@ -1,0 +1,11 @@
+# Now, we'll install and configure our Nextcloud instance.
+
+- name: Download and install the Nextcloud snap package. 
+  snap:
+    name:
+      - nextcloud
+
+# TK-TODO: Variabalize this?
+- name: Create admin account. (This may take a moment!)
+  become: yes
+  command: "sudo -i nextcloud.manual-install admin password"

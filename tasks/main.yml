@@ -1,0 +1,5 @@
+- name: Set up and configure the Debian 9 server.
+  include_tasks: debian-basic.yml
+
+- name: Configure Nextcloud.
+  include_tasks: nextcloud-setup.yml

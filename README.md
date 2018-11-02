@@ -1,3 +1,0 @@
-# NextCloud
-
-> :construction: TK-TODO
