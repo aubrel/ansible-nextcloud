@@ -11,6 +11,4 @@
     - snapd
 
 - name: Add /snap/bin to $PATH.
-  become: yes
-  command: "source /etc/profile.d/apps-bin-path.sh"
-  ignore_errors: yes
+  shell: "sudo -i source /etc/profile.d/apps-bin-path.sh"
