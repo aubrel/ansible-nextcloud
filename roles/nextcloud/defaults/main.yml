@@ -39,3 +39,5 @@ nc_default_admin_password: admin
 # LET'S ENCRYPT
 #
 # Uncomment the following to configure the Let's Encrypt setup module.
+recovery_email: myfake@blah.invalid
+#
