@@ -9,6 +9,9 @@
   vars:
     packages:
     - snapd
+    update_cache: yes
 
 - name: Add /snap/bin to $PATH.
-  shell: "sudo -i source /etc/profile.d/apps-bin-path.sh"
+  become: yes
+  become_flags: -i
+  shell: "source /etc/profile.d/apps-bin-path.sh"

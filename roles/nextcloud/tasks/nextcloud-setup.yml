@@ -1,0 +1,42 @@
+# NOTE: All variables below are configured in defaults/main.yml.
+#
+# First, install and configure the Nextcloud instance.
+
+- name: Download and install the Nextcloud snap package. (This may take a moment!) 
+  become: yes
+  command: "snap install nextcloud"
+
+- name: Create admin account. (This may take a moment!)
+  become: yes
+  command: nextcloud.manual-install {{ nc_default_admin_user }} {{ nc_default_admin_password }}
+
+# By default, Nextcloud will only trust localhost. Uncomment this to set
+# configurations for the domain name of your choosing.
+#
+# - name: Adjust trusted domains.
+#  become: yes
+#  command: sudo -i nextcloud.occ config:system:set trusted_domains {{ trusted_domain_amount }} --value={{ trusted_domain_1 }}
+#
+# Now we'll configure the SSL settings. Uncomment only one of the following,
+# according to whether you are using a self-signed certificate or you want to
+# generate one using Let's Encrypt, which is provided by the Nextcloud snap.
+# Note that if you use a self-signed certificate, your browser and those of
+# others are likely to throw security warnings.
+#
+- name: Create self-signed certificate.
+  become: yes
+  become_flags: -i
+  command: nextcloud.enable-https self-signed
+
+# > TK-TODO
+#
+# - name: Generate an SSL certificate using Let's Encrypt.
+#   become: yes
+#   become_flags: -i
+#   command: nextcloud.enable-https lets-encrypt
+#
+# Allow HTTPS connections via port 443 through the UFW firewall.
+- name: Allow port 443 through UFW firewall.
+  ufw:
+    rule: allow
+    port: 443
