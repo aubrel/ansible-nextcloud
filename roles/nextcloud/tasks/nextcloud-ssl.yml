@@ -26,10 +26,10 @@
 # Note that if you use a self-signed certificate, your browser and those of
 # others are likely to throw security warnings.
 #
- - name: Create self-signed certificate.
-  become: yes
+- name: Create self-signed certificate.
+  become: true
   become_flags: -i
-  command: nextcloud.enable-https self-signed
+  command: "nextcloud.enable-https self-signed"
 #
 # LET'S ENCRYPT
 #
