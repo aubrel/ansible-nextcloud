@@ -4,11 +4,10 @@
 
 # TK-TODO: Ansible 2.8 apparently will include support for a snap module, so this should be/will be replaced with that once available.
 - name: Install Nextcloud from the snap package.
-  become: yes
   command: "snap install nextcloud"
 
 - name: Install Nextcloud SSL certificate.
-  include_tasks: nextcloud-ssl.yml
+  import_tasks: nextcloud-ssl.yml
 
 - name: Create initial admin account and finish installation. (This may take a moment!)
   become: yes

@@ -1,6 +1,6 @@
 # By default, Nextcloud will only trust the localhost domain. Uncomment this to set
 # configurations for the domain name(s) of your choosing.
-#
+
 - name: Adjust trusted domains.
   become: yes
   become_flags: "-i"
@@ -16,7 +16,6 @@
 # others are likely to throw security warnings.
 
 - name: Create self-signed certificate.
-  become: true
   become_flags: -i
   command: "nextcloud.enable-https self-signed"
 
