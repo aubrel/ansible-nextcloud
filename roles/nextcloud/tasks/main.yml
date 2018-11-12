@@ -1,5 +1,11 @@
-- name: Set up and configure the Debian 9 server.
-  include: debian-basic.yml
+---
+- name: Install Nextcloud dependencies.
+  include_tasks: "install-{{ ansible_os_family | default('Debian') | lower }}.yml"
 
-- name: Configure Nextcloud settings.
-  include: nextcloud-setup.yml
+# TK-TODO: Ansible 2.8 apparently will include support for a snap module, so this should be/will be replaced with that once available.
+- name: Install Nextcloud from the snap package.
+  become: yes
+  command: "snap install nextcloud"
+
+- name: Install Nextcloud SSL certificate.
+  include_tasks: nextcloud-ssl.yml

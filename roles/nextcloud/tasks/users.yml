@@ -1,0 +1,4 @@
+---
+- name: Create initial admin account. (This may take a moment!)
+  become: yes
+  command: nextcloud.manual-install {{ nc_default_admin_user }} {{ nc_default_admin_password }}
