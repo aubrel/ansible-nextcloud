@@ -1,11 +1,11 @@
 # By default, Nextcloud will only trust the localhost domain. Uncomment this to set
 # configurations for the domain name(s) of your choosing.
 #
-# - name: Adjust trusted domains.
-#  become: yes
-#  become_flags: "-i"
-#  command: "nextcloud.occ config:system:set trusted_domains {{ trusted_domain_amount }} --value={{ trusted_domain_1 }}"
-#
+- name: Adjust trusted domains.
+  become: yes
+  become_flags: "-i"
+  command: "nextcloud.occ config:system:set trusted_domains {{ trusted_domain_amount }} --value={{ trusted_domain_1 }}"
+
 # Configure the SSL settings. Uncomment only one of the following,
 # according to whether you are using a self-signed certificate or you want to
 # generate one using Let's Encrypt, which is provided by the Nextcloud snap.

@@ -9,3 +9,8 @@
 
 - name: Install Nextcloud SSL certificate.
   include_tasks: nextcloud-ssl.yml
+
+- name: Create initial admin account and finish installation. (This may take a moment!)
+  become: yes
+  become_flags: "-i"
+  command: "nextcloud.manual-install {{ nc_default_admin_user }} {{ nc_default_admin_password }}"

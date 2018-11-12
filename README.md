@@ -8,7 +8,7 @@ This role is intended to provision the very basic existence of a Nextcloud insta
 
 * [ansible-role-tor](https://github.com/AnarchoTechNYC/ansible-role-tor) - Securely build a system Tor and optionally configure numerous high-security Onion services.
 
-> :construction: See also [Stealthcloud](https://github.com/aubrel/stealthcloud), a project I am working on to provision Nextcloud onto a Tor onion service.
+> :information_source: See also [Stealthcloud](https://github.com/aubrel/stealthcloud), a project I am working on to provision Nextcloud with a Tor onion service.
 
 ## Nextcloud configuration
 

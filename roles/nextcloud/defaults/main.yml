@@ -7,13 +7,13 @@
 # When Nextcloud is first installed, the administrator needs to set up
 # an account. These are the default credentials for that administrator
 # account.
-#
+
 # Default administrator username.
 nc_default_admin_user: admin
-#
+
 # Default administrator password.
 nc_default_admin_password: admin
-#
+
 # Set trusted domain names. By default, Nextcloud will only trust 
 # localhost. If you have a domain name that you want to let Nextcloud
 # trust, you must define it here. You may define as many trusted domains
@@ -21,10 +21,10 @@ nc_default_admin_password: admin
 # actually enables that default setting, but is here for you to add your own.
 #
 # Amount of additional trusted domains to add.
-# trusted_domain_amount: 1
+trusted_domain_amount: 1
 #
 # Domain of the trusted domain to add.
-# trusted_domain_1: example.com
+trusted_domain_1: localhost
 #
 # Configure SSL variables. You can either choose to set up a self-signed
 # certificate, as in the case of hosting on localhost, or you can use the
@@ -40,4 +40,3 @@ nc_default_admin_password: admin
 #
 # Uncomment the following to configure the Let's Encrypt setup module.
 recovery_email: myfake@blah.invalid
-#

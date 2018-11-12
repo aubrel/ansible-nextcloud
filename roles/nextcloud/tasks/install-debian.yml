@@ -1,12 +1,8 @@
 ---
 - name: Install Nextcloud dependencies.
   apt:
-    name: "{{ packages }}"
+    name: snapd
     update_cache: true
-  vars:
-    packages:
-    - snapd
-    - ufw
 
 - name: Add /snap/bin to $PATH.
   shell: "source /etc/profile.d/apps-bin-path.sh"
