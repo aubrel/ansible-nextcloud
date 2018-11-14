@@ -8,6 +8,15 @@
   register: snap_install
   changed_when: "'already installed' not in snap_install.stderr_lines[-1]"
 
+# By default, Nextcloud will only trust the localhost domain. Uncomment this to set
+# configurations for the domain name(s) of your choosing.
+# TODO: Read out `onion-services/<name>/hostname` file for list of
+#       domain names that we need to add to `nc_trusted_domains`.
+- name: Adjust trusted domains.
+  become_flags: "-i"
+  command: "nextcloud.occ config:system:set trusted_domains {{ item.key }} --value={{ item.value }}"
+  loop: "{{ nc_trusted_domains | dict2items }}"
+
 - name: Install Nextcloud SSL certificate.
   import_tasks: nextcloud-ssl.yml
 
