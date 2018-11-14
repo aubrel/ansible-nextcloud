@@ -19,13 +19,9 @@ nc_default_admin_password: admin
 # trust, you must define it here. You may define as many trusted domains
 # as you like. By default, only one is trusted: localhost. This config
 # actually enables that default setting, but is here for you to add your own.
-#
-# Amount of additional trusted domains to add.
-trusted_domain_amount: 1
-#
-# Domain of the trusted domain to add.
-trusted_domain_1: localhost
-#
+nc_trusted_domains:
+  1: localhost
+
 # Configure SSL variables. You can either choose to set up a self-signed
 # certificate, as in the case of hosting on localhost, or you can use the
 # letsencrypt section instead if you already have a domain name you'd
